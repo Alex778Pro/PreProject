@@ -8,5 +8,8 @@
     <changeSet id = "1" author="Alex">
         <sqlFile path="db/changelog/create_users_table.sql"/>
     </changeSet>
+    <changeSet id = "2" author="Alex">
+        <sqlFile path="db/changelog/create_products_table.sql"/>
+    </changeSet>
 
 </databaseChangeLog>

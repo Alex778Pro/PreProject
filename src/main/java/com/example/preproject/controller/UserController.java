@@ -17,25 +17,25 @@ public class UserController {
     }
 
 
-//    @GetMapping("/greet")
-//    public String printUser() {
-//        return userService.printUser();
-//    }
-//
-//    @GetMapping("/greet/{name}")
-//    public String printName(@PathVariable("name") String name){
-//        return userService.printName(name);
-//    }
-//
-//    @GetMapping("/greet/usersPrint")
-//    public List<User> printUsersPrint(){
-//        return userService.printUsersPrint();
-//    }
-//
-//    @PostMapping("/greet/users")
-//    public void addUser(@RequestBody User user){
-//        userService.save(user);
-//    }
+    @GetMapping("/greet")
+    public String printUser() {
+        return userService.printUser();
+    }
+
+    @GetMapping("/greet/{name}")
+    public String printName(@PathVariable("name") String name){
+        return userService.printName(name);
+    }
+
+    @GetMapping("/greet/usersPrint")
+    public List<User> printUsersPrint(){
+        return userService.printUsersPrint();
+    }
+
+    @PostMapping("/greet/users")
+    public void addUser(@RequestBody User user){
+        userService.save(user);
+    }
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();

@@ -10,27 +10,27 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
- //   private List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-//    public String printUser() {
-//        return "Welcome to Spring Boot!";
-//    }
-//
-//    public String printName(String name) {
-//        return "Hello, " + name;
-//    }
-//
-//    public List<User> printUsersPrint() {
-//        return users;
-//    }
-//
-//    public void save(User user) {
-//        users.add(user);
-//    }
+    public String printUser() {
+        return "Welcome to Spring Boot!";
+    }
+
+    public String printName(String name) {
+        return "Hello, " + name;
+    }
+
+    public List<User> printUsersPrint() {
+        return users;
+    }
+
+    public void save(User user) {
+        users.add(user);
+    }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
