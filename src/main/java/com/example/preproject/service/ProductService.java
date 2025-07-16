@@ -55,6 +55,9 @@ public class ProductService {
         if (description != null && !description.equals(product.getDescription())) {
             product.setDescription(description);
         }
+        if (price != null && price != product.getPrice()) {
+            product.setPrice(price);
+        }
         productRepository.save(product);
     }
 }

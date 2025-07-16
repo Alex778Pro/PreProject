@@ -1,0 +1,6 @@
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    customerName VARCHAR(255) NOT NULL,
+    orderDate TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    totalAmount DECIMAL(10, 2) NOT NULL
+);

@@ -2,7 +2,7 @@ package com.example.preproject.controller;
 
 import com.example.preproject.repository.Product;
 import com.example.preproject.service.ProductService;
-//import jakarta.validation.Valid;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@Valid @RequestBody Product product) {
         return productService.create(product);
     }
 
@@ -38,7 +38,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void update(
-            @PathVariable Long id,
+            @Valid @PathVariable Long id,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String description,
             @RequestParam(required = false) Double price
