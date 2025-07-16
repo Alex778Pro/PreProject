@@ -1,4 +1,4 @@
-package com.example.preproject.repository;
+package com.example.preproject.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

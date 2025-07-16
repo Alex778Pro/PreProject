@@ -1,6 +1,6 @@
 package com.example.preproject.controller;
 
-import com.example.preproject.repository.Product;
+import com.example.preproject.entity.Product;
 import com.example.preproject.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;

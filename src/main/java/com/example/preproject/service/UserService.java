@@ -1,6 +1,6 @@
 package com.example.preproject.service;
 
-import com.example.preproject.repository.User;
+import com.example.preproject.entity.User;
 import com.example.preproject.repository.UserRepository;
 import org.springframework.stereotype.Service;
 

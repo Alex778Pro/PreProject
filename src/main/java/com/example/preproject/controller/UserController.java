@@ -1,6 +1,6 @@
 package com.example.preproject.controller;
 
-import com.example.preproject.repository.User;
+import com.example.preproject.entity.User;
 import com.example.preproject.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
