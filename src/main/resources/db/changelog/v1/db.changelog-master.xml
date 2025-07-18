@@ -17,5 +17,11 @@
     <changeSet id = "4" author="Alex">
         <sqlFile path="db/changelog/add_status_table_orders.sql"/>
     </changeSet>
+    <changeSet id = "5" author="Alex">
+        <sqlFile path="db/changelog/create_category_table.sql"/>
+    </changeSet>
+    <changeSet id = "6" author="Alex">
+        <sqlFile path="db/changelog/add_category_id_products_table.sql"/>
+    </changeSet>
 
 </databaseChangeLog>
