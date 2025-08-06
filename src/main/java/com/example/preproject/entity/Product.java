@@ -17,7 +17,7 @@ public class Product {
     private String name;
     private String description;
     @Column(nullable = false)
-    @Positive(message = "Цена должны быть положительна")
+    @Positive(message = "Цена должна быть положительна")
     private double price;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
