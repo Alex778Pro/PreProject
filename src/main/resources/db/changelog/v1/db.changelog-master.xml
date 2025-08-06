@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id = "1" author="Alex">
+        <sqlFile path="db/changelog/create_users_table.sql"/>
+    </changeSet>
+    <changeSet id = "2" author="Alex">
+        <sqlFile path="db/changelog/create_products_table.sql"/>
+    </changeSet>
+    <changeSet id = "3" author="Alex">
+        <sqlFile path="db/changelog/create_orders_table.sql"/>
+    </changeSet>
+    <changeSet id = "4" author="Alex">
+        <sqlFile path="db/changelog/add_status_table_orders.sql"/>
+    </changeSet>
+    <changeSet id = "5" author="Alex">
+        <sqlFile path="db/changelog/create_category_table.sql"/>
+    </changeSet>
+    <changeSet id = "6" author="Alex">
+        <sqlFile path="db/changelog/add_category_id_products_table.sql"/>
+    </changeSet>
+
+</databaseChangeLog>

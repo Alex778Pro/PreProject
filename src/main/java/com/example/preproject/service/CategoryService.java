@@ -46,6 +46,7 @@ public class CategoryService {
         }
         return categoryRepository.save(category);
     }
+
     public void delete(Long id) {
         Optional<Category> categoryOptional = categoryRepository.findById(id);
         if (categoryOptional.isEmpty()) {

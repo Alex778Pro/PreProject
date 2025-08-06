@@ -1,5 +1,6 @@
 package com.example.preproject.controller;
 
+import com.example.preproject.dto.ProductDTO;
 import com.example.preproject.entity.Product;
 import com.example.preproject.service.ProductService;
 import jakarta.validation.Valid;
@@ -17,12 +18,12 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return productService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable int id) {
+    public ProductDTO getProductById(@PathVariable Long id) {
         return productService.findById(id);
     }
 

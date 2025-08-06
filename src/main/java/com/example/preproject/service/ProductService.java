@@ -1,9 +1,12 @@
 package com.example.preproject.service;
 
+import com.example.preproject.dto.ProductDTO;
 import com.example.preproject.entity.Product;
+import com.example.preproject.mapper.ProductMapper;
 import com.example.preproject.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,12 +18,17 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public List<ProductDTO> findAll() {
+        List<Product> products = productRepository.findAll();
+        List<ProductDTO> productDTOS = new ArrayList<>();
+        for (Product product : products) {
+            productDTOS.add(ProductMapper.INSTANCE.toProductDTO(product));
+        }
+        return productDTOS;
     }
 
-    public Product findById(long id) {
-        return productRepository.findById(id).orElse(null);
+    public ProductDTO findById(long id) {
+        return ProductMapper.INSTANCE.toProductDTO(productRepository.findById(id).orElse(null));
     }
 
     public Product create(Product product) {
@@ -55,8 +63,12 @@ public class ProductService {
         if (description != null && !description.equals(product.getDescription())) {
             product.setDescription(description);
         }
-        if (price != null && price != product.getPrice()) {
-            product.setPrice(price);
+        if (price != null) {
+            if (!price.equals(product.getPrice())) {
+                product.setPrice(price);
+            }
+        } else {
+            throw new IllegalStateException("Цена не может быть null");
         }
         productRepository.save(product);
     }
