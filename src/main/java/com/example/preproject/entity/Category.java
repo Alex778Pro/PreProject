@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Setter
-@Getter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 

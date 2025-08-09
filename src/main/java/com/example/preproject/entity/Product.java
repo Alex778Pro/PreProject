@@ -5,9 +5,6 @@ import lombok.*;
 import jakarta.validation.constraints.*;
 
 @Data
-@Setter
-@Getter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -16,7 +13,7 @@ import jakarta.validation.constraints.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     @NotBlank(message = "Название товара не может быть пустым")

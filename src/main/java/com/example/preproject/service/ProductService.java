@@ -4,20 +4,21 @@ import com.example.preproject.dto.ProductDTO;
 import com.example.preproject.entity.Product;
 import com.example.preproject.mapper.ProductMapper;
 import com.example.preproject.repository.ProductRepository;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-
+    @Transactional
     public List<ProductDTO> findAll() {
         List<Product> products = productRepository.findAll();
         List<ProductDTO> productDTOS = new ArrayList<>();
@@ -27,10 +28,12 @@ public class ProductService {
         return productDTOS;
     }
 
+    @Transactional
     public ProductDTO findById(long id) {
         return ProductMapper.INSTANCE.toProductDTO(productRepository.findById(id).orElse(null));
     }
 
+    @Transactional
     public Product create(Product product) {
         Optional<Product> optionalProduct = productRepository.findByName(product.getName());
         if (optionalProduct.isPresent()) {
@@ -39,6 +42,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    @Transactional
     public void delete(Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isEmpty()) {
@@ -47,6 +51,7 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    @Transactional
     public void update(Long id, String name, String description, Double price) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isEmpty()) {

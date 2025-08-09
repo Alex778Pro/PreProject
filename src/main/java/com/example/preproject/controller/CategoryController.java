@@ -3,19 +3,17 @@ package com.example.preproject.controller;
 import com.example.preproject.entity.Category;
 import com.example.preproject.service.CategoryService;
 import jakarta.validation.Valid;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
+
 @RestController
 @RequestMapping(path = "/api/category")
 public class CategoryController {
-    CategoryService categoryService;
-
-    public CategoryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+    private final CategoryService categoryService;
 
     @GetMapping
     public List<Category> getAllProducts() {
