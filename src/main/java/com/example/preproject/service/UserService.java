@@ -17,11 +17,11 @@ public class UserService {
     }
 
     public String printUser() {
-        return "Welcome to Spring Boot!";
+        return "Добро пожаловать в Spring Boot!";
     }
 
     public String printName(String name) {
-        return "Hello, " + name;
+        return "Привет, " + name;
     }
 
     public List<User> printUsersPrint() {

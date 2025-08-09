@@ -1,28 +1,28 @@
 package com.example.preproject.controller;
 
+import com.example.preproject.dto.ProductDTO;
 import com.example.preproject.entity.Product;
 import com.example.preproject.service.ProductService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping(path = "/api/product")
-public class ProductController {
-    ProductService productService;
+@RequiredArgsConstructor
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+@RestController
+@RequestMapping(path = "/api/products")
+public class ProductController {
+    private final ProductService productService;
 
     @GetMapping
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return productService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable int id) {
+    public ProductDTO getProductById(@PathVariable Long id) {
         return productService.findById(id);
     }
 

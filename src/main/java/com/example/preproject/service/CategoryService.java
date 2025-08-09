@@ -2,27 +2,30 @@ package com.example.preproject.service;
 
 import com.example.preproject.entity.Category;
 import com.example.preproject.repository.CategoryRepository;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
+
 @Service
 public class CategoryService {
-    CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
-
+    @Transactional
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
 
+    @Transactional
     public Category findById(Long id) {
         return categoryRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public Category create(Category category) {
         Optional<Category> categoryOptional = categoryRepository.findByName(category.getName());
         if (categoryOptional.isPresent()) {
@@ -31,6 +34,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
+    @Transactional
     public Category update(Long id, String name, String description) {
         Optional<Category> categoryOptional = categoryRepository.findById(id);
         if (categoryOptional.isEmpty()) {
@@ -46,6 +50,8 @@ public class CategoryService {
         }
         return categoryRepository.save(category);
     }
+
+    @Transactional
     public void delete(Long id) {
         Optional<Category> categoryOptional = categoryRepository.findById(id);
         if (categoryOptional.isEmpty()) {
